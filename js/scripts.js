@@ -3,7 +3,7 @@ $(document).ready(function() {
     var sentenceString = $("input#sentence").val();
     // var sentenceString = "This is a sentence, like any other.";
     var lowerCaseString = sentenceString.toLowerCase();
-    var punctuationless = lowerCaseString.replace(/[.,]/g,"");
+    var punctuationless = lowerCaseString.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
     var finalString = punctuationless.replace(/\s{2,}/g," ");
 
     var sentenceArray = finalString.split(" ");
@@ -17,7 +17,11 @@ $(document).ready(function() {
 
     });
     newString = newArray.reverse().join([separator = ' ']);
-    $("#newSentence").text(newString);
+    alert("to uppercase next");
+    var capFirst = newString.charAt(0).toUpperCase();
+    alert(capFirst);
+    var capitalizedString = newString.replace(newString.charAt(0),capFirst);
+    $("#newSentence").text(capitalizedString+".");
     // sentenceArray.push()
     console.log(sentenceString);
     console.log(sentenceArray);
